@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name='viewport' content="width=device-width" scale="1.0">
+    <title>code editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #main {
+            background-color:antiquewhite;
+            display: grid;
+            /* width: 100vw;
+            height: 100vh; */
+            padding: 0;
+            margin: 0;
+            grid-template-areas:
+                'h h'
+                'a b'
+                'c b'
+                'd b'
+
+        }
+
+        #html {
+            grid-area: a;
+            text-shadow:3px 2px #6246dd;
+        }
+
+        #css {
+            grid-area: c;
+            text-shadow:3px 2px #6246dd;
+        }
+
+        #js {
+            grid-area: d;
+            text-shadow:3px 2px #6246dd;
+        }
+
+        #output {
+            grid-area: b;
+            padding: 20px;
+            background-color: rgb(130, 197, 161);
+            color: #1b1414;
+            text-shadow:3px 2px #6246dd;
+        }
+        h1{
+            grid-area: h;
+            text-align: center;
+            text-shadow:3px 2px #dd4646;
+        }
+
+        textarea{
+            width: 100%;
+            height:25vh;
+            background-color: #202020;
+            color: #ffffff;
+            overflow: scroll;
+        }
+        label{
+            padding: 25px;
+            
+            font-size: 25px;
+        }
+        #ans{
+            width: 100%;
+            height: 85vh;
+        }
+        i{
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1>CODE EDITOR</h1>
+      
+            <div id="html">
+                <label>HTML</label>
+                <textarea id="htext"></textarea>
+            </div>
+
+            <div id="css">
+                <label>CSS</label><br>
+                <textarea id="ctext"></textarea>
+            </div>
+
+            <div id="js">
+                <label>JS</label><br>
+                <textarea id="jtext"></textarea>
+            </div>
+        
+              
+            <div id="output">
+                <label> <i class="fa fa-play"i id="play"></i>  OUTPUT</label>
+                <iframe id="ans"></iframe>
+            </div>
+        
+    </div>
+
+    <script>
+//  let bu=document.getElementById('play')
+//       bu.addEventListener('click',foo);
+
+
+
+    let bu= document.getElementById('play')
+       bu.addEventListener('click',foo)
+
+        function foo() {
+            var html = document.getElementById("htext").value;
+            var css = document.getElementById("ctext").value;
+            var js = document.getElementById("jtext").value;
+            let anss = document.getElementById("ans")
+
+            anss.contentDocument.body.innerHTML = html + "<style>"+css +"</style"
+            anss.contentWindow.eval(js)
+        }
+        console.log(html)
+    </script>
+
+</body>
+
+</html>
